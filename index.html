@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checklist Empilhadeira</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+ <!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- jsPDF AutoTable (tabela bonita no PDF) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.1/jspdf.plugin.autotable.min.js"></script>
+
+</head>
+
+<body>
+  <header class="topbar">
+    <img src="logo-jat.png" class="logo-jat" alt="Logo JAT" />
+    <h1>Checklist de Empilhadeira</h1>
+  </header>
+
+  <div class="subtop">
+    <span class="sub">Pré-uso diário</span>
+  </div>
+
+  <main class="container">
+    
+    <!-- ETAPA 1: Identificação -->
+    <section id="step-identificacao" class="step active">
+      <h2>1. Identificação</h2>
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="empilhadeira">Empilhadeira</label>
+          <select id="empilhadeira">
+              <option value="Hyster 90 - Série H90X123">Hyster 90 - Série H90X123</option>
+            <option value="Hyster 70 - Série H70Y456">Hyster 70 - Série H70Y456</option>
+            <option value="Toyota 8FGCU25 - Série T25Z789">Toyota 8FGCU25 - Série T25Z789</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="horimetro">Horímetro</label>
+          <input id="horimetro" type="number" min="0" step="0.1" placeholder="Ex.: 1523,5" />
+        </div>
+
+        <div class="form-group">
+          <label for="operadorNome">Nome do operador</label>
+          <input id="operadorNome" type="text" />
+        </div>
+
+        <div class="form-group">
+          <label for="operadorMatricula">Matrícula</label>
+          <input id="operadorMatricula" type="text" />
+        </div>
+
+        <div class="form-group">
+          <label for="dataHora">Data / Hora</label>
+          <input id="dataHora" type="datetime-local" />
+        </div>
+
+      </div>
+
+      <div class="actions">
+        <button id="btnIrChecklist" class="btn primary">Iniciar checklist</button>
+      </div>
+    </section>
+
+    <!-- ETAPA 2: Checklist -->
+    <section id="step-checklist" class="step">
+      <h2>2. Itens de verificação</h2>
+
+      <div class="progress-wrapper">
+        <span id="progressText">Itens concluídos: 0 / 0</span>
+        <div class="progress-bar">
+          <div id="progressFill"></div>
+        </div>
+      </div>
+
+      <div id="checklistContainer" class="cards"></div>
+
+      <div class="actions">
+        <button class="btn secondary" id="btnVoltarIdentificacao">Voltar</button>
+        <button class="btn primary" id="btnIrResumo">Ir para resumo</button>
+      </div>
+    </section>
+
+    <!-- ETAPA 3: Resumo -->
+    <section id="step-resumo" class="step">
+      <h2>3. Resumo e Assinatura</h2>
+
+      <div id="resumoDados" class="resumo"></div>
+
+      <div class="form-group">
+        <label for="observacoesGerais">Observações gerais</label>
+        <textarea id="observacoesGerais" rows="3"></textarea>
+      </div>
+
+      <div class="signature-area">
+        <div class="signature-header">
+          <span>Assinatura do operador</span>
+          <button type="button" id="btnLimparAssinatura" class="btn small secondary">
+            Limpar
+          </button>
+        </div>
+
+        <p class="signature-hint">
+          Use o <strong>dedo</strong> para assinar no celular/tablet ou o <strong>mouse</strong> no computador.
+        </p>
+
+        <canvas id="signaturePad"></canvas>
+      </div>
+
+      <div class="actions">
+        <button class="btn secondary" id="btnVoltarChecklist">Voltar</button>
+        <button class="btn primary" id="btnGerarPDF">Finalizar e gerar PDF</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>Sistema Checklist Empilhadeira - Versão beta</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

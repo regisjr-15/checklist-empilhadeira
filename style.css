@@ -1,0 +1,312 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* TOPO COM LOGO CENTRALIZADO */
+.topbar {
+  background: #111827;
+  color: #f9fafb;
+  padding: 0.75rem 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.logo-jat {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.subtop {
+  background: #111827;
+  color: #d1d5db;
+  text-align: center;
+  padding-bottom: 0.6rem;
+}
+
+.sub {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.step {
+  display: none;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.step.active {
+  display: block;
+}
+
+h2 {
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* FORMULÁRIOS */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+label {
+  font-size: 0.8rem;
+  color: #374151;
+}
+
+input,
+select,
+textarea {
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  outline: none;
+  background: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.2);
+}
+
+/* CARDS CHECKLIST */
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.card-item {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.card-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card-item-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.status-btn {
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.status-ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-nok {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.status-selected-ok {
+  background: #16a34a;
+  color: #ecfdf5;
+}
+
+.status-selected-nok {
+  background: #dc2626;
+  color: #fee2e2;
+}
+
+.card-extra {
+  margin-top: 0.6rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.card-extra textarea {
+  font-size: 0.8rem;
+}
+
+.card-extra.visible {
+  display: flex;
+}
+
+/* BOTÕES / AÇÕES */
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: #f9fafb;
+}
+
+.btn.secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btn.small {
+  flex: 0;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* PROGRESSO */
+
+.progress-wrapper {
+  margin-top: 0.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 0.3rem;
+}
+
+#progressFill {
+  height: 100%;
+  width: 0%;
+  background: #22c55e;
+  transition: width 0.15s ease-in-out;
+}
+
+.progress-wrapper span {
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+/* RESUMO */
+
+.resumo {
+  background: #f9fafb;
+  border-radius: 0.75rem;
+  padding: 0.8rem;
+  border: 1px solid #e5e7eb;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+/* ASSINATURA */
+
+.signature-area {
+  margin-top: 1rem;
+}
+
+.signature-hint {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0 0 0.4rem 0;
+}
+
+
+.signature-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+
+#signaturePad {
+  width: 100%;
+  height: 180px;
+  border-radius: 0.75rem;
+  border: 1px dashed #9ca3af;
+  background: #ffffff;
+  touch-action: none;
+}
+
+/* RODAPÉ */
+
+.footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+  padding: 0.7rem 1rem 1rem;
+}
+
+/* animação leve */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
